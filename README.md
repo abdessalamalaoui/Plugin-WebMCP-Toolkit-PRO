@@ -12,6 +12,7 @@ Adds a WebMCP-oriented action layer to WordPress sites, including:
 
 - Admin settings for enabling the action layer.
 - AI persona wizard for site-specific agent instructions.
+- Help & Docs page inside the WordPress dashboard.
 - Declarative form annotations for search, comments, and generic forms.
 - Front-end `document.modelContext` tool registration.
 - Admin-only bridge status widget.
@@ -35,6 +36,35 @@ Extends WebMCP Toolkit PRO for sites using WP Recipe Maker:
 3. Upload `webmcp-toolkit-pro.zip` and activate it.
 4. Optional: upload `webmcp-recipe-maker-addon.zip` and activate it on sites using WP Recipe Maker.
 5. Enable the action layer from **WebMCP AI > WebMCP v3** in the WordPress dashboard.
+
+## Help & Documentation
+
+After activation, open **WebMCP AI > Help & Docs** in the WordPress dashboard.
+
+That page explains:
+
+- What WebMCP Toolkit PRO does for WordPress sites.
+- How to enable the action layer and declarative form mapping.
+- How to use the AI Persona Wizard.
+- How bloggers can guide AI agents toward accurate site search and post discovery.
+- How food bloggers can use the Recipe Maker Addon with WP Recipe Maker.
+- Which WebMCP tools are registered on the front end.
+- Common troubleshooting steps.
+
+## How It Helps Users
+
+WebMCP Toolkit PRO gives AI-enabled browsers a clearer way to understand a WordPress site. Instead of relying only on visual scraping, agents can read site instructions, discover labeled forms, and use structured tools. For visitors, this can mean more accurate help, cleaner navigation, and fewer mistaken summaries.
+
+For bloggers and publishers, the plugin helps AI assistants understand the site's niche, tone, and preferred content-discovery flow. This is useful for archives, how-to posts, reviews, tutorials, news, and resource libraries.
+
+For food bloggers, the WebMCP Recipe Maker Addon exposes recipe data from WP Recipe Maker in a structured format. AI agents can read ingredients, instructions, nutrition, and serving counts more reliably, then help visitors with recipe summaries, shopping lists, and portion scaling.
+
+## Available Tools
+
+- `get_agent_instructions`: returns the saved site persona and interaction rules.
+- `get_post_details`: logs and returns a structured response for a requested WordPress post ID.
+- `get_recipe_data`: added by the recipe add-on on posts with WP Recipe Maker recipes.
+- `scale_recipe_servings`: added by the recipe add-on to calculate a serving-size multiplier.
 
 ## Requirements
 

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WebMCP Toolkit PRO
  * Description: Implements the full WebMCP Actionable Layer with an advanced AI Persona Wizard and strict W3C schema validation.
- * Version: 3.2.1
+ * Version: 3.2.2
  * Author: abdessalam.ai
  * License: GPL2
  */
@@ -24,6 +24,7 @@ class WebMCP_Toolkit_v3 {
     public function create_menu() {
         add_menu_page('WebMCP v3', 'WebMCP AI', 'manage_options', 'webmcp-v3', [$this, 'settings_page'], 'dashicons-robot-custom', 81);
         add_submenu_page('webmcp-v3', 'AI Analytics', 'AI Monitor', 'manage_options', 'webmcp-monitor', [$this, 'monitor_page']);
+        add_submenu_page('webmcp-v3', 'Help & Documentation', 'Help & Docs', 'manage_options', 'webmcp-help-docs', [$this, 'help_page']);
     }
 
     public function register_settings() {
@@ -41,7 +42,7 @@ class WebMCP_Toolkit_v3 {
         $is_recipe_active = class_exists('WPRM_Recipe_Handler') || defined('WPRM_VERSION');
         ?>
         <div class="wrap">
-            <h1>WebMCP Toolkit PRO <span style="color:#00a32a">Actionable Layer</span> (v3.2.1)</h1>
+            <h1>WebMCP Toolkit PRO <span style="color:#00a32a">Actionable Layer</span> (v3.2.2)</h1>
             
             <form method="post" action="options.php">
                 <?php settings_fields('webmcp_v3_group'); ?>
@@ -156,6 +157,107 @@ class WebMCP_Toolkit_v3 {
                 };
             });
         </script>
+        <?php
+    }
+
+    public function help_page() {
+        $recipe_active = class_exists('WPRM_Recipe_Handler') || class_exists('WPRM_Recipe') || defined('WPRM_VERSION');
+        ?>
+        <div class="wrap">
+            <h1>WebMCP Toolkit PRO Help & Documentation</h1>
+            <p style="max-width: 900px; font-size: 15px;">
+                WebMCP Toolkit PRO helps make your WordPress site easier for AI agents and AI-enabled browsers to understand.
+                Instead of forcing an assistant to guess from the visual page, the plugin exposes clear instructions, structured tools,
+                and form labels that tell the agent what actions are available and how to use them.
+            </p>
+
+            <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
+                <h2>Quick Start</h2>
+                <ol>
+                    <li>Open <strong>WebMCP AI</strong> in the WordPress dashboard.</li>
+                    <li>Enable <strong>Action Layer</strong> to register WebMCP tools on the front end.</li>
+                    <li>Enable <strong>Declarative Forms</strong> if you want search, comments, contact forms, and other forms labeled for AI agents.</li>
+                    <li>Use the <strong>AI Persona Wizard</strong> to generate instructions that match your site type and tone.</li>
+                    <li>Save your settings, then visit a public post or page and test it with an AI-enabled browser or WebMCP audit tool.</li>
+                </ol>
+            </div>
+
+            <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
+                <h2>How This Helps Site Owners</h2>
+                <table class="widefat striped">
+                    <tbody>
+                        <tr>
+                            <td><strong>Clear AI instructions</strong></td>
+                            <td>The <code>get_agent_instructions</code> tool tells agents what your site is, how to behave, and which tools to use first.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Less guessing</strong></td>
+                            <td>Structured tools reduce scraping mistakes by giving agents a cleaner path to content and actions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Better form discovery</strong></td>
+                            <td>Declarative form labels help agents understand search, comment, contact, and generic forms.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Admin visibility</strong></td>
+                            <td>The AI Monitor shows recent tool activity so you can see how agents interact with the action layer.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
+                <h2>For Bloggers and Publishers</h2>
+                <p>
+                    Bloggers can use WebMCP Toolkit PRO to guide AI readers toward search, article details, comments, and accurate site context.
+                    This is useful for content-heavy sites where assistants need to find posts, summarize topics, or help visitors navigate archives.
+                </p>
+                <ul style="list-style: disc; padding-left: 22px;">
+                    <li>Use the <strong>Information / Resource Blog</strong> persona for educational, news, review, and niche blogs.</li>
+                    <li>Add instructions such as <strong>Search Priority</strong> and <strong>JSON Accuracy</strong> from the Action Layer Dictionary.</li>
+                    <li>Keep your persona specific: describe your audience, content niche, editorial tone, and what agents should avoid guessing.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
+                <h2>For Food Bloggers</h2>
+                <p>
+                    Food bloggers using WP Recipe Maker can pair this toolkit with the WebMCP Recipe Maker Addon.
+                    The add-on exposes recipe name, ingredients, instructions, nutrition, and serving data as structured AI-readable output.
+                </p>
+                <ol>
+                    <li>Install and activate WP Recipe Maker.</li>
+                    <li>Install and activate WebMCP Recipe Maker Addon.</li>
+                    <li>Enable the WebMCP Toolkit PRO action layer.</li>
+                    <li>Open <strong>Recipe Integration</strong> under WebMCP AI to confirm both systems are connected.</li>
+                    <li>Use the <strong>Cooking & Recipe Specialist</strong> persona when building a food-site assistant profile.</li>
+                </ol>
+                <p>
+                    Current recipe status:
+                    <strong><?php echo $recipe_active ? 'WP Recipe Maker detected.' : 'WP Recipe Maker was not detected.'; ?></strong>
+                </p>
+            </div>
+
+            <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
+                <h2>Available WebMCP Tools</h2>
+                <ul style="list-style: disc; padding-left: 22px;">
+                    <li><code>get_agent_instructions</code>: returns the saved site persona and interaction rules.</li>
+                    <li><code>get_post_details</code>: logs and returns a structured response for a requested WordPress post ID.</li>
+                    <li><code>get_recipe_data</code>: added by the recipe add-on on posts that contain WP Recipe Maker recipes.</li>
+                    <li><code>scale_recipe_servings</code>: added by the recipe add-on to calculate a serving-size multiplier.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
+                <h2>Troubleshooting</h2>
+                <ul style="list-style: disc; padding-left: 22px;">
+                    <li>If tools do not appear, confirm <strong>Enable Action Layer</strong> is checked and saved.</li>
+                    <li>If recipe tools do not appear, confirm the page contains a WP Recipe Maker recipe and that WP Recipe Maker is active.</li>
+                    <li>If forms are not labeled, enable <strong>Declarative Forms</strong> and reload the front-end page.</li>
+                    <li>If no activity appears in AI Monitor, test from a page where an AI agent actually calls one of the registered tools.</li>
+                </ul>
+            </div>
+        </div>
         <?php
     }
 

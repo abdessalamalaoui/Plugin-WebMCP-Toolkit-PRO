@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WebMCP Recipe Maker Addon
  * Description: Extends WebMCP functionality specifically for WP Recipe Maker. Exposes recipe data as structured tools for AI agents.
- * Version: 1.3.1
+ * Version: 1.3.2
  * Author: abdessalam.ai
  * License: GPL2
  */
@@ -62,7 +62,22 @@ class WebMCP_WPRM_Addon_v130 {
                         <td><?php echo $wprm_active ? '<span style="color:green">✅ Connected</span>' : '<span style="color:red">❌ Not Detected</span>'; ?></td>
                     </tr>
                 </table>
-                <p class="description">Status version: 1.3.1</p>
+                <p class="description">Status version: 1.3.2</p>
+            </div>
+
+            <div class="card" style="max-width: 800px; margin-top: 20px;">
+                <h2>How to Use the Recipe Addon</h2>
+                <ol>
+                    <li>Activate <strong>WebMCP Toolkit PRO</strong> and enable the Action Layer.</li>
+                    <li>Activate <strong>WP Recipe Maker</strong> and add recipes to your posts.</li>
+                    <li>Activate <strong>WebMCP Recipe Maker Addon</strong>.</li>
+                    <li>Open a post that contains a WP Recipe Maker recipe.</li>
+                    <li>AI-enabled browsers can then call <code>get_recipe_data</code> and <code>scale_recipe_servings</code>.</li>
+                </ol>
+                <p>
+                    This helps food bloggers make ingredients, steps, nutrition, and serving data easier for AI assistants to read accurately.
+                    It is especially useful when visitors ask for shopping lists, recipe summaries, or portion adjustments.
+                </p>
             </div>
         </div>
         <?php
