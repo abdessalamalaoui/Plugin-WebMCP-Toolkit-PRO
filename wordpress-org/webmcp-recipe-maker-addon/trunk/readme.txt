@@ -4,7 +4,7 @@ Tags: recipes, food blog, wp recipe maker, ai, webmcp
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,8 +68,13 @@ No. This WordPress.org package is fully functional and GPL licensed.
 
 == Changelog ==
 
+= 1.3.5 =
+* Improved WordPress.org compatibility for escaped admin output.
+* Added safer recipe ingredient and instruction formatting.
+* Added translator context for the status version string.
+
 = 1.3.4 =
-* Added language loading and a languages directory.
+* Added language support and a languages directory.
 * Added a starter translation template at `languages/webmcp-recipe-maker-addon.pot`.
 * Made the dashboard status and guidance text translation-ready.
 
@@ -86,8 +91,11 @@ No. This WordPress.org package is fully functional and GPL licensed.
 
 == Upgrade Notice ==
 
+= 1.3.5 =
+Recommended WordPress.org compatibility update.
+
 = 1.3.4 =
-Recommended language and WordPress.org compatibility update.
+Recommended language support update.
 
 = 1.3.3 =
 Recommended compatibility update for WordPress.org packaging.

@@ -3,7 +3,7 @@
  * Plugin Name: WebMCP Recipe Maker Addon
  * Plugin URI: https://github.com/abdessalamalaoui/Plugin-WebMCP-Toolkit-PRO
  * Description: Extends WebMCP functionality specifically for WP Recipe Maker. Exposes recipe data as structured tools for AI agents.
- * Version: 1.3.4
+ * Version: 1.3.5
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Requires Plugins: webmcp-toolkit-pro, wp-recipe-maker
@@ -16,6 +16,8 @@
  */
 
 if (!defined('ABSPATH')) exit;
+
+define('WEBMCP_RECIPE_MAKER_ADDON_VERSION', '1.3.5');
 
 class WebMCP_WPRM_Addon_v130 {
 
@@ -46,7 +48,7 @@ class WebMCP_WPRM_Addon_v130 {
         <div class="wrap">
             <h1><?php esc_html_e('WebMCP', 'webmcp-recipe-maker-addon'); ?> <span style="color:#f39c12"><?php esc_html_e('Recipe Addon', 'webmcp-recipe-maker-addon'); ?></span></h1>
             
-            <div class="notice <?php echo ($wprm_active && $main_active) ? 'notice-success' : 'notice-warning'; ?> inline">
+            <div class="notice <?php echo esc_attr(($wprm_active && $main_active) ? 'notice-success' : 'notice-warning'); ?> inline">
                 <p>
                     <?php if (!$wprm_active): ?>
                         <strong><?php esc_html_e('Error:', 'webmcp-recipe-maker-addon'); ?></strong> <?php esc_html_e('WP Recipe Maker not detected. Even if active, try refreshing or ensuring WPRM is loaded.', 'webmcp-recipe-maker-addon'); ?>
@@ -63,14 +65,31 @@ class WebMCP_WPRM_Addon_v130 {
                 <table class="wp-list-table widefat fixed striped" style="border:none;">
                     <tr>
                         <td><strong><?php esc_html_e('Main WebMCP Plugin:', 'webmcp-recipe-maker-addon'); ?></strong></td>
-                        <td><?php echo $main_active ? '<span style="color:green">' . esc_html__('Active', 'webmcp-recipe-maker-addon') . '</span>' : '<span style="color:red">' . esc_html__('Disabled in Settings', 'webmcp-recipe-maker-addon') . '</span>'; ?></td>
+                        <td>
+                            <?php if ($main_active): ?>
+                                <span style="color:green"><?php esc_html_e('Active', 'webmcp-recipe-maker-addon'); ?></span>
+                            <?php else: ?>
+                                <span style="color:red"><?php esc_html_e('Disabled in Settings', 'webmcp-recipe-maker-addon'); ?></span>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                     <tr>
                         <td><strong><?php esc_html_e('WP Recipe Maker:', 'webmcp-recipe-maker-addon'); ?></strong></td>
-                        <td><?php echo $wprm_active ? '<span style="color:green">' . esc_html__('Connected', 'webmcp-recipe-maker-addon') . '</span>' : '<span style="color:red">' . esc_html__('Not Detected', 'webmcp-recipe-maker-addon') . '</span>'; ?></td>
+                        <td>
+                            <?php if ($wprm_active): ?>
+                                <span style="color:green"><?php esc_html_e('Connected', 'webmcp-recipe-maker-addon'); ?></span>
+                            <?php else: ?>
+                                <span style="color:red"><?php esc_html_e('Not Detected', 'webmcp-recipe-maker-addon'); ?></span>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                 </table>
-                <p class="description"><?php esc_html_e('Status version: 1.3.4', 'webmcp-recipe-maker-addon'); ?></p>
+                <p class="description">
+                    <?php
+                    /* translators: %s: Plugin version number. */
+                    printf(esc_html__('Status version: %s', 'webmcp-recipe-maker-addon'), esc_html(WEBMCP_RECIPE_MAKER_ADDON_VERSION));
+                    ?>
+                </p>
             </div>
 
             <div class="card" style="max-width: 800px; margin-top: 20px;">
@@ -177,8 +196,16 @@ class WebMCP_WPRM_Addon_v130 {
         $formatted = [];
         $ingredients = method_exists($recipe, 'ingredients') ? $recipe->ingredients() : [];
         foreach ($ingredients as $group) {
+            if (empty($group['ingredients']) || !is_array($group['ingredients'])) {
+                continue;
+            }
+
             foreach ($group['ingredients'] as $ing) {
-                $formatted[] = ['amount' => $ing['amount'], 'unit' => $ing['unit'], 'name' => $ing['name']];
+                $formatted[] = [
+                    'amount' => isset($ing['amount']) ? sanitize_text_field($ing['amount']) : '',
+                    'unit' => isset($ing['unit']) ? sanitize_text_field($ing['unit']) : '',
+                    'name' => isset($ing['name']) ? sanitize_text_field($ing['name']) : '',
+                ];
             }
         }
         return $formatted;
@@ -188,8 +215,12 @@ class WebMCP_WPRM_Addon_v130 {
         $formatted = [];
         $instructions = method_exists($recipe, 'instructions') ? $recipe->instructions() : [];
         foreach ($instructions as $group) {
+            if (empty($group['instructions']) || !is_array($group['instructions'])) {
+                continue;
+            }
+
             foreach ($group['instructions'] as $step) {
-                $formatted[] = strip_tags($step['text']);
+                $formatted[] = isset($step['text']) ? wp_strip_all_tags($step['text']) : '';
             }
         }
         return $formatted;

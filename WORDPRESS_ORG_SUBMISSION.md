@@ -35,7 +35,7 @@ WordPress.org will provide an SVN repository for each approved plugin. Copy the 
 and:
 
 - `wordpress-org/webmcp-recipe-maker-addon/trunk`
-- `wordpress-org/webmcp-recipe-maker-addon/tags/1.3.4`
+- `wordpress-org/webmcp-recipe-maker-addon/tags/1.3.5`
 - `wordpress-org/webmcp-recipe-maker-addon/assets`
 
 Do not commit GitHub `dist/` ZIP files to WordPress.org SVN.
@@ -43,4 +43,4 @@ Do not commit GitHub `dist/` ZIP files to WordPress.org SVN.
 ## Current Stable Tags
 
 - WebMCP Toolkit PRO: `3.2.4`
-- WebMCP Recipe Maker Addon: `1.3.4`
+- WebMCP Recipe Maker Addon: `1.3.5`
