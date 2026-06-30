@@ -1,10 +1,10 @@
-=== Abdessalam AI WebMCP PRO ===
+=== Abdessalam AI Toolkit for WebMCP ===
 Contributors: abdessalamalaoui
 Tags: ai, webmcp, automation, chatbot, accessibility
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.2.5
+Stable tag: 3.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Adds an AI-readable WebMCP action layer, persona instructions, form mapping, hel
 
 == Description ==
 
-Abdessalam AI WebMCP PRO helps WordPress sites communicate more clearly with AI-enabled browsers and assistants.
+Abdessalam AI Toolkit for WebMCP helps WordPress sites communicate more clearly with AI-enabled browsers and assistants.
 
 Instead of requiring an AI agent to guess from the visual page, the plugin can expose site instructions, structured tool definitions, and labeled forms. Site owners can use the built-in AI Persona Wizard to describe their site, preferred tone, and interaction rules.
 
@@ -37,8 +37,8 @@ This plugin is GPL licensed and fully functional. It does not include paid unloc
 
 == Installation ==
 
-1. Upload the `abdessalam-ai-webmcp-pro` folder to `/wp-content/plugins/`.
-2. Activate Abdessalam AI WebMCP PRO from the Plugins screen.
+1. Upload the `abdessalam-ai-toolkit-for-webmcp` folder to `/wp-content/plugins/`.
+2. Activate Abdessalam AI Toolkit for WebMCP from the Plugins screen.
 3. Open Abdessalam AI in the WordPress dashboard.
 4. Enable Action Layer.
 5. Optional: enable Declarative Forms.
@@ -74,14 +74,14 @@ Install WP Recipe Maker and the separate Abdessalam AI RM Addon.
 
 == Changelog ==
 
-= 3.2.5 =
-* Renamed the plugin to Abdessalam AI WebMCP PRO.
+= 3.2.6 =
+* Renamed the plugin to Abdessalam AI Toolkit for WebMCP.
 * Updated package slug, text domain, and WordPress.org metadata for the new name.
 * Updated add-on references to Abdessalam AI RM Addon.
 
 = 3.2.4 =
 * Added language support and a languages directory.
-* Added a starter translation template at `languages/abdessalam-ai-webmcp-pro.pot`.
+* Added a starter translation template at `languages/abdessalam-ai-toolkit-for-webmcp.pot`.
 * Made the main dashboard screens, help page, monitor, and admin bridge text translation-ready.
 
 = 3.2.3 =
@@ -100,7 +100,7 @@ Install WP Recipe Maker and the separate Abdessalam AI RM Addon.
 
 == Upgrade Notice ==
 
-= 3.2.5 =
+= 3.2.6 =
 Recommended rename and WordPress.org metadata update.
 
 = 3.2.4 =

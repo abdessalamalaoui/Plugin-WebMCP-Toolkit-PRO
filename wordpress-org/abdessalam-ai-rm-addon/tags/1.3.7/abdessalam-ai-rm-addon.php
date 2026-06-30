@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Abdessalam AI RM Addon
- * Plugin URI: https://github.com/abdessalamalaoui/Plugin-WebMCP-Toolkit-PRO
- * Description: Extends Abdessalam AI WebMCP PRO for WP Recipe Maker. Exposes recipe data as structured tools for AI agents.
- * Version: 1.3.6
+ * Plugin URI: https://github.com/abdessalamalaoui
+ * Description: Extends Abdessalam AI Toolkit for WebMCP for WP Recipe Maker. Exposes recipe data as structured tools for AI agents.
+ * Version: 1.3.7
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: abdessalam.ai
@@ -16,7 +16,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('WEBMCP_RECIPE_MAKER_ADDON_VERSION', '1.3.6');
+define('WEBMCP_RECIPE_MAKER_ADDON_VERSION', '1.3.7');
 
 class WebMCP_WPRM_Addon_v130 {
 
@@ -37,7 +37,7 @@ class WebMCP_WPRM_Addon_v130 {
     public function add_addon_menu() {
         if ($this->is_main_active()) {
             add_submenu_page(
-                'abdessalam-ai-webmcp-pro',
+                'abdessalam-ai-toolkit-for-webmcp',
                 __('Recipe Settings', 'abdessalam-ai-rm-addon'),
                 __('Recipe Integration', 'abdessalam-ai-rm-addon'),
                 'manage_options',
@@ -62,7 +62,7 @@ class WebMCP_WPRM_Addon_v130 {
         }
 
         if (!$this->is_main_active()) {
-            echo '<div class="notice notice-warning"><p><strong>' . esc_html__('Abdessalam AI RM Addon:', 'abdessalam-ai-rm-addon') . '</strong> ' . esc_html__('Abdessalam AI WebMCP PRO is not active. Activate it to expose WebMCP recipe tools.', 'abdessalam-ai-rm-addon') . '</p></div>';
+            echo '<div class="notice notice-warning"><p><strong>' . esc_html__('Abdessalam AI RM Addon:', 'abdessalam-ai-rm-addon') . '</strong> ' . esc_html__('Abdessalam AI Toolkit for WebMCP is not active. Activate it to expose WebMCP recipe tools.', 'abdessalam-ai-rm-addon') . '</p></div>';
         }
 
         if (!$this->is_wprm_active()) {
@@ -81,11 +81,11 @@ class WebMCP_WPRM_Addon_v130 {
             <div class="notice <?php echo esc_attr(($wprm_active && $main_active && $action_layer_enabled) ? 'notice-success' : 'notice-warning'); ?> inline">
                 <p>
                     <?php if (!$main_active): ?>
-                        <strong><?php esc_html_e('Error:', 'abdessalam-ai-rm-addon'); ?></strong> <?php esc_html_e('Abdessalam AI WebMCP PRO is not active. Activate it to expose WebMCP recipe tools.', 'abdessalam-ai-rm-addon'); ?>
+                        <strong><?php esc_html_e('Error:', 'abdessalam-ai-rm-addon'); ?></strong> <?php esc_html_e('Abdessalam AI Toolkit for WebMCP is not active. Activate it to expose WebMCP recipe tools.', 'abdessalam-ai-rm-addon'); ?>
                     <?php elseif (!$wprm_active): ?>
                         <strong><?php esc_html_e('Error:', 'abdessalam-ai-rm-addon'); ?></strong> <?php esc_html_e('WP Recipe Maker not detected. Even if active, try refreshing or ensuring WPRM is loaded.', 'abdessalam-ai-rm-addon'); ?>
                     <?php elseif (!$action_layer_enabled): ?>
-                        <strong><?php esc_html_e('Note:', 'abdessalam-ai-rm-addon'); ?></strong> <?php esc_html_e('The Action Layer is disabled. Go to Abdessalam AI WebMCP settings to enable it.', 'abdessalam-ai-rm-addon'); ?>
+                        <strong><?php esc_html_e('Note:', 'abdessalam-ai-rm-addon'); ?></strong> <?php esc_html_e('The Action Layer is disabled. Go to Abdessalam AI Toolkit settings to enable it.', 'abdessalam-ai-rm-addon'); ?>
                     <?php else: ?>
                         <strong><?php esc_html_e('System Connected:', 'abdessalam-ai-rm-addon'); ?></strong> <?php esc_html_e('Recipe content is now accessible via the Action Layer.', 'abdessalam-ai-rm-addon'); ?>
                     <?php endif; ?>
@@ -96,7 +96,7 @@ class WebMCP_WPRM_Addon_v130 {
                 <h2><?php esc_html_e('Integration Status', 'abdessalam-ai-rm-addon'); ?></h2>
                 <table class="wp-list-table widefat fixed striped" style="border:none;">
                     <tr>
-                        <td><strong><?php esc_html_e('Abdessalam AI WebMCP PRO:', 'abdessalam-ai-rm-addon'); ?></strong></td>
+                        <td><strong><?php esc_html_e('Abdessalam AI Toolkit for WebMCP:', 'abdessalam-ai-rm-addon'); ?></strong></td>
                         <td>
                             <?php if ($main_active): ?>
                                 <span style="color:green"><?php esc_html_e('Active', 'abdessalam-ai-rm-addon'); ?></span>
@@ -127,7 +127,7 @@ class WebMCP_WPRM_Addon_v130 {
             <div class="card" style="max-width: 800px; margin-top: 20px;">
                 <h2><?php esc_html_e('How to Use the RM Addon', 'abdessalam-ai-rm-addon'); ?></h2>
                 <ol>
-                    <li><?php esc_html_e('Activate Abdessalam AI WebMCP PRO and enable the Action Layer.', 'abdessalam-ai-rm-addon'); ?></li>
+                    <li><?php esc_html_e('Activate Abdessalam AI Toolkit for WebMCP and enable the Action Layer.', 'abdessalam-ai-rm-addon'); ?></li>
                     <li><?php esc_html_e('Activate WP Recipe Maker and add recipes to your posts.', 'abdessalam-ai-rm-addon'); ?></li>
                     <li><?php esc_html_e('Activate Abdessalam AI RM Addon.', 'abdessalam-ai-rm-addon'); ?></li>
                     <li><?php esc_html_e('Open a post that contains a WP Recipe Maker recipe.', 'abdessalam-ai-rm-addon'); ?></li>

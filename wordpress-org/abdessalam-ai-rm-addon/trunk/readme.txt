@@ -4,15 +4,15 @@ Tags: recipes, food blog, wp recipe maker, ai, webmcp
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Adds structured WebMCP recipe tools for sites using Abdessalam AI WebMCP PRO and WP Recipe Maker.
+Adds structured WebMCP recipe tools for sites using Abdessalam AI Toolkit for WebMCP and WP Recipe Maker.
 
 == Description ==
 
-Abdessalam AI RM Addon extends Abdessalam AI WebMCP PRO for food blogs and recipe sites using WP Recipe Maker.
+Abdessalam AI RM Addon extends Abdessalam AI Toolkit for WebMCP for food blogs and recipe sites using WP Recipe Maker.
 
 When a singular WordPress post contains a WP Recipe Maker recipe and the WebMCP action layer is enabled, the add-on registers structured tools that AI-enabled browsers can use to read recipe data more accurately.
 
@@ -23,21 +23,21 @@ This plugin is GPL licensed and fully functional. It does not include paid unloc
 * Detects WP Recipe Maker recipes on singular posts.
 * Registers `get_recipe_data` with recipe name, ingredients, instructions, nutrition, and servings.
 * Registers `scale_recipe_servings` to calculate portion-size adjustments.
-* Adds a Recipe Integration status page under Abdessalam AI when Abdessalam AI WebMCP PRO is active.
-* Shows admin notices when Abdessalam AI WebMCP PRO or WP Recipe Maker are inactive.
+* Adds a Recipe Integration status page under Abdessalam AI when Abdessalam AI Toolkit for WebMCP is active.
+* Shows admin notices when Abdessalam AI Toolkit for WebMCP or WP Recipe Maker are inactive.
 * Includes setup guidance for food bloggers.
 * Translation-ready admin screens with a bundled POT file.
 
 = Requirements =
 
-* Abdessalam AI WebMCP PRO is recommended and required for WebMCP recipe tools.
+* Abdessalam AI Toolkit for WebMCP is recommended and required for WebMCP recipe tools.
 * WP Recipe Maker is recommended and required for recipe data, but the add-on can be activated without it and will show an admin notice.
 * WordPress 6.5 or newer.
 * PHP 7.4 or newer.
 
 == Installation ==
 
-1. Install and activate Abdessalam AI WebMCP PRO.
+1. Install and activate Abdessalam AI Toolkit for WebMCP.
 2. Install and activate WP Recipe Maker.
 3. Upload the `abdessalam-ai-rm-addon` folder to `/wp-content/plugins/`.
 4. Activate Abdessalam AI RM Addon from the Plugins screen.
@@ -69,6 +69,10 @@ No. This WordPress.org package is fully functional and GPL licensed.
 
 == Changelog ==
 
+= 1.3.7 =
+* Updated references for the renamed main plugin, Abdessalam AI Toolkit for WebMCP.
+* Updated package metadata for the current WordPress.org review package.
+
 = 1.3.6 =
 * Renamed the plugin to Abdessalam AI RM Addon.
 * Updated package slug, text domain, and WordPress.org metadata for the new name.
@@ -94,6 +98,9 @@ No. This WordPress.org package is fully functional and GPL licensed.
 * Initial public release.
 
 == Upgrade Notice ==
+
+= 1.3.7 =
+Recommended compatibility update for the renamed main plugin.
 
 = 1.3.6 =
 Recommended WordPress.org compatibility update.
