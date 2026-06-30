@@ -20,13 +20,8 @@ if (!defined('ABSPATH')) exit;
 class WebMCP_WPRM_Addon_v130 {
 
     public function __construct() {
-        add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('admin_menu', [$this, 'add_addon_menu'], 35);
         add_action('wp_head', [$this, 'inject_recipe_tools'], 30);
-    }
-
-    public function load_textdomain() {
-        load_plugin_textdomain('webmcp-recipe-maker-addon', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     private function is_wprm_active() {

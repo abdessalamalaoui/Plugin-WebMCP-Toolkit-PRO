@@ -2,7 +2,7 @@
 Contributors: abdessalamalaoui
 Tags: recipes, food blog, wp recipe maker, ai, webmcp
 Requires at least: 6.5
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.3.4
 License: GPLv2 or later

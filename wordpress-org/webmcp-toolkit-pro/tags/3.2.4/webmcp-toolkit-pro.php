@@ -19,17 +19,12 @@ if (!defined('ABSPATH')) exit;
 class WebMCP_Toolkit_v3 {
 
     public function __construct() {
-        add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('admin_menu', [$this, 'create_menu']);
         add_action('admin_init', [$this, 'register_settings']);
         add_action('wp_head', [$this, 'inject_webmcp_core'], 5); 
         add_action('wp_footer', [$this, 'inject_connection_widget']);
         
         add_action('wp_ajax_log_webmcp_v3', [$this, 'ajax_log_action']);
-    }
-
-    public function load_textdomain() {
-        load_plugin_textdomain('webmcp-toolkit-pro', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     public function create_menu() {
@@ -85,7 +80,10 @@ class WebMCP_Toolkit_v3 {
                 <!-- ✨ AI PERSONA WIZARD ✨ -->
                 <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px; background: #f0f6fb; border-left: 4px solid #2271b1;">
                     <h2><?php esc_html_e('AI Persona Wizard', 'webmcp-toolkit-pro'); ?></h2>
-                    <p><?php printf(esc_html__('Generate high-performance instructions for AI agents visiting %s.', 'webmcp-toolkit-pro'), '<strong>' . esc_html($site_name) . '</strong>'); ?></p>
+                    <p><?php
+                    /* translators: %s: Site name. */
+                    printf(esc_html__('Generate high-performance instructions for AI agents visiting %s.', 'webmcp-toolkit-pro'), '<strong>' . esc_html($site_name) . '</strong>');
+                    ?></p>
                     
                     <div style="display: flex; gap: 20px; margin-bottom: 20px; align-items: flex-end;">
                         <div style="flex: 1;">
@@ -437,7 +435,7 @@ class WebMCP_Toolkit_v3 {
             $logs = [];
         }
 
-        $params_json = isset($_POST['params']) ? wp_unslash($_POST['params']) : '{}';
+        $params_json = isset($_POST['params']) ? sanitize_text_field(wp_unslash($_POST['params'])) : '{}';
         $params = json_decode($params_json, true);
         if (!is_array($params)) {
             $params = [];
