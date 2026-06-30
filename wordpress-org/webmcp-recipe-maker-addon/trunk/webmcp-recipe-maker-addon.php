@@ -3,7 +3,7 @@
  * Plugin Name: WebMCP Recipe Maker Addon
  * Plugin URI: https://github.com/abdessalamalaoui/Plugin-WebMCP-Toolkit-PRO
  * Description: Extends WebMCP functionality specifically for WP Recipe Maker. Exposes recipe data as structured tools for AI agents.
- * Version: 1.3.3
+ * Version: 1.3.4
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Requires Plugins: webmcp-toolkit-pro, wp-recipe-maker
@@ -20,8 +20,13 @@ if (!defined('ABSPATH')) exit;
 class WebMCP_WPRM_Addon_v130 {
 
     public function __construct() {
+        add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('admin_menu', [$this, 'add_addon_menu'], 35);
         add_action('wp_head', [$this, 'inject_recipe_tools'], 30);
+    }
+
+    public function load_textdomain() {
+        load_plugin_textdomain('webmcp-recipe-maker-addon', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     private function is_wprm_active() {
@@ -31,8 +36,8 @@ class WebMCP_WPRM_Addon_v130 {
     public function add_addon_menu() {
         add_submenu_page(
             'webmcp-v3', 
-            'Recipe Settings',
-            'Recipe Integration',
+            __('Recipe Settings', 'webmcp-recipe-maker-addon'),
+            __('Recipe Integration', 'webmcp-recipe-maker-addon'),
             'manage_options',
             'webmcp-recipe-addon',
             [$this, 'addon_status_page']
@@ -44,47 +49,46 @@ class WebMCP_WPRM_Addon_v130 {
         $main_active = get_option('webmcp_enabled');
         ?>
         <div class="wrap">
-            <h1>WebMCP <span style="color:#f39c12">Recipe Addon</span></h1>
+            <h1><?php esc_html_e('WebMCP', 'webmcp-recipe-maker-addon'); ?> <span style="color:#f39c12"><?php esc_html_e('Recipe Addon', 'webmcp-recipe-maker-addon'); ?></span></h1>
             
             <div class="notice <?php echo ($wprm_active && $main_active) ? 'notice-success' : 'notice-warning'; ?> inline">
                 <p>
                     <?php if (!$wprm_active): ?>
-                        <strong>⚠️ Error:</strong> WP Recipe Maker not detected. Even if active, try refreshing or ensuring WPRM is loaded.
+                        <strong><?php esc_html_e('Error:', 'webmcp-recipe-maker-addon'); ?></strong> <?php esc_html_e('WP Recipe Maker not detected. Even if active, try refreshing or ensuring WPRM is loaded.', 'webmcp-recipe-maker-addon'); ?>
                     <?php elseif (!$main_active): ?>
-                        <strong>⚠️ Note:</strong> The "Action Layer" is disabled. Go to WebMCP v3 > Settings to enable.
+                        <strong><?php esc_html_e('Note:', 'webmcp-recipe-maker-addon'); ?></strong> <?php esc_html_e('The Action Layer is disabled. Go to WebMCP v3 > Settings to enable.', 'webmcp-recipe-maker-addon'); ?>
                     <?php else: ?>
-                        <strong>✅ System Connected:</strong> Recipe content is now accessible via the Action Layer.
+                        <strong><?php esc_html_e('System Connected:', 'webmcp-recipe-maker-addon'); ?></strong> <?php esc_html_e('Recipe content is now accessible via the Action Layer.', 'webmcp-recipe-maker-addon'); ?>
                     <?php endif; ?>
                 </p>
             </div>
 
             <div class="card" style="max-width: 600px; margin-top: 20px;">
-                <h2>Integration Status</h2>
+                <h2><?php esc_html_e('Integration Status', 'webmcp-recipe-maker-addon'); ?></h2>
                 <table class="wp-list-table widefat fixed striped" style="border:none;">
                     <tr>
-                        <td><strong>Main WebMCP Plugin:</strong></td>
-                        <td><?php echo $main_active ? '<span style="color:green">✅ Active</span>' : '<span style="color:red">❌ Disabled in Settings</span>'; ?></td>
+                        <td><strong><?php esc_html_e('Main WebMCP Plugin:', 'webmcp-recipe-maker-addon'); ?></strong></td>
+                        <td><?php echo $main_active ? '<span style="color:green">' . esc_html__('Active', 'webmcp-recipe-maker-addon') . '</span>' : '<span style="color:red">' . esc_html__('Disabled in Settings', 'webmcp-recipe-maker-addon') . '</span>'; ?></td>
                     </tr>
                     <tr>
-                        <td><strong>WP Recipe Maker:</strong></td>
-                        <td><?php echo $wprm_active ? '<span style="color:green">✅ Connected</span>' : '<span style="color:red">❌ Not Detected</span>'; ?></td>
+                        <td><strong><?php esc_html_e('WP Recipe Maker:', 'webmcp-recipe-maker-addon'); ?></strong></td>
+                        <td><?php echo $wprm_active ? '<span style="color:green">' . esc_html__('Connected', 'webmcp-recipe-maker-addon') . '</span>' : '<span style="color:red">' . esc_html__('Not Detected', 'webmcp-recipe-maker-addon') . '</span>'; ?></td>
                     </tr>
                 </table>
-                <p class="description">Status version: 1.3.3</p>
+                <p class="description"><?php esc_html_e('Status version: 1.3.4', 'webmcp-recipe-maker-addon'); ?></p>
             </div>
 
             <div class="card" style="max-width: 800px; margin-top: 20px;">
-                <h2>How to Use the Recipe Addon</h2>
+                <h2><?php esc_html_e('How to Use the Recipe Addon', 'webmcp-recipe-maker-addon'); ?></h2>
                 <ol>
-                    <li>Activate <strong>WebMCP Toolkit PRO</strong> and enable the Action Layer.</li>
-                    <li>Activate <strong>WP Recipe Maker</strong> and add recipes to your posts.</li>
-                    <li>Activate <strong>WebMCP Recipe Maker Addon</strong>.</li>
-                    <li>Open a post that contains a WP Recipe Maker recipe.</li>
-                    <li>AI-enabled browsers can then call <code>get_recipe_data</code> and <code>scale_recipe_servings</code>.</li>
+                    <li><?php esc_html_e('Activate WebMCP Toolkit PRO and enable the Action Layer.', 'webmcp-recipe-maker-addon'); ?></li>
+                    <li><?php esc_html_e('Activate WP Recipe Maker and add recipes to your posts.', 'webmcp-recipe-maker-addon'); ?></li>
+                    <li><?php esc_html_e('Activate WebMCP Recipe Maker Addon.', 'webmcp-recipe-maker-addon'); ?></li>
+                    <li><?php esc_html_e('Open a post that contains a WP Recipe Maker recipe.', 'webmcp-recipe-maker-addon'); ?></li>
+                    <li><?php esc_html_e('AI-enabled browsers can then call get_recipe_data and scale_recipe_servings.', 'webmcp-recipe-maker-addon'); ?></li>
                 </ol>
                 <p>
-                    This helps food bloggers make ingredients, steps, nutrition, and serving data easier for AI assistants to read accurately.
-                    It is especially useful when visitors ask for shopping lists, recipe summaries, or portion adjustments.
+                    <?php esc_html_e('This helps food bloggers make ingredients, steps, nutrition, and serving data easier for AI assistants to read accurately. It is especially useful when visitors ask for shopping lists, recipe summaries, or portion adjustments.', 'webmcp-recipe-maker-addon'); ?>
                 </p>
             </div>
         </div>
@@ -120,7 +124,7 @@ class WebMCP_WPRM_Addon_v130 {
                     // STRICT SCHEMA added (Empty properties, additional false)
                     mcp.registerTool({
                         name: "get_recipe_data",
-                        description: "Provides full structured recipe data (ingredients, instructions, nutrition) from WP Recipe Maker.",
+                        description: "<?php echo esc_js(__('Provides full structured recipe data including ingredients, instructions, nutrition, and servings from WP Recipe Maker.', 'webmcp-recipe-maker-addon')); ?>",
                         inputSchema: {
                             type: "object",
                             properties: {},
@@ -142,13 +146,13 @@ class WebMCP_WPRM_Addon_v130 {
                     // STRICT SCHEMA added (Descriptions, additional false)
                     mcp.registerTool({
                         name: "scale_recipe_servings",
-                        description: "Calculates the factor to adjust ingredients for a new portion size.",
+                        description: "<?php echo esc_js(__('Calculates the factor to adjust ingredients for a new portion size.', 'webmcp-recipe-maker-addon')); ?>",
                         inputSchema: { 
                             type: "object", 
                             properties: { 
                                 servings: { 
                                     type: "number",
-                                    description: "The desired number of servings to scale to."
+                                    description: "<?php echo esc_js(__('The desired number of servings to scale to.', 'webmcp-recipe-maker-addon')); ?>"
                                 } 
                             }, 
                             required: ["servings"],

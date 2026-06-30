@@ -3,7 +3,7 @@
  * Plugin Name: WebMCP Toolkit PRO
  * Plugin URI: https://github.com/abdessalamalaoui/Plugin-WebMCP-Toolkit-PRO
  * Description: Adds an AI-readable WebMCP action layer, persona instructions, form mapping, and monitoring to WordPress.
- * Version: 3.2.3
+ * Version: 3.2.4
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: abdessalam.ai
@@ -19,6 +19,7 @@ if (!defined('ABSPATH')) exit;
 class WebMCP_Toolkit_v3 {
 
     public function __construct() {
+        add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('admin_menu', [$this, 'create_menu']);
         add_action('admin_init', [$this, 'register_settings']);
         add_action('wp_head', [$this, 'inject_webmcp_core'], 5); 
@@ -27,10 +28,14 @@ class WebMCP_Toolkit_v3 {
         add_action('wp_ajax_log_webmcp_v3', [$this, 'ajax_log_action']);
     }
 
+    public function load_textdomain() {
+        load_plugin_textdomain('webmcp-toolkit-pro', false, dirname(plugin_basename(__FILE__)) . '/languages');
+    }
+
     public function create_menu() {
-        add_menu_page('WebMCP v3', 'WebMCP AI', 'manage_options', 'webmcp-v3', [$this, 'settings_page'], 'dashicons-robot-custom', 81);
-        add_submenu_page('webmcp-v3', 'AI Analytics', 'AI Monitor', 'manage_options', 'webmcp-monitor', [$this, 'monitor_page']);
-        add_submenu_page('webmcp-v3', 'Help & Documentation', 'Help & Docs', 'manage_options', 'webmcp-help-docs', [$this, 'help_page']);
+        add_menu_page(__('WebMCP v3', 'webmcp-toolkit-pro'), __('WebMCP AI', 'webmcp-toolkit-pro'), 'manage_options', 'webmcp-v3', [$this, 'settings_page'], 'dashicons-robot-custom', 81);
+        add_submenu_page('webmcp-v3', __('AI Analytics', 'webmcp-toolkit-pro'), __('AI Monitor', 'webmcp-toolkit-pro'), 'manage_options', 'webmcp-monitor', [$this, 'monitor_page']);
+        add_submenu_page('webmcp-v3', __('Help & Documentation', 'webmcp-toolkit-pro'), __('Help & Docs', 'webmcp-toolkit-pro'), 'manage_options', 'webmcp-help-docs', [$this, 'help_page']);
     }
 
     public function register_settings() {
@@ -52,26 +57,26 @@ class WebMCP_Toolkit_v3 {
         $is_recipe_active = class_exists('WPRM_Recipe_Handler') || defined('WPRM_VERSION');
         ?>
         <div class="wrap">
-            <h1>WebMCP Toolkit PRO <span style="color:#00a32a">Actionable Layer</span> (v3.2.3)</h1>
+            <h1><?php esc_html_e('WebMCP Toolkit PRO', 'webmcp-toolkit-pro'); ?> <span style="color:#00a32a"><?php esc_html_e('Actionable Layer', 'webmcp-toolkit-pro'); ?></span> (v3.2.4)</h1>
             
             <form method="post" action="options.php">
                 <?php settings_fields('webmcp_v3_group'); ?>
                 
                 <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
-                    <h2>Core Configuration</h2>
+                    <h2><?php esc_html_e('Core Configuration', 'webmcp-toolkit-pro'); ?></h2>
                     <table class="form-table">
                         <tr>
-                            <th scope="row">Enable Action Layer</th>
+                            <th scope="row"><?php esc_html_e('Enable Action Layer', 'webmcp-toolkit-pro'); ?></th>
                             <td>
                                 <input type="checkbox" name="webmcp_enabled" value="1" <?php checked(1, get_option('webmcp_enabled'), true); ?> />
-                                <span class="description">Activates <code>document.modelContext</code> for AI browsers.</span>
+                                <span class="description"><?php esc_html_e('Activates document.modelContext for AI browsers.', 'webmcp-toolkit-pro'); ?></span>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">Declarative Forms</th>
+                            <th scope="row"><?php esc_html_e('Declarative Forms', 'webmcp-toolkit-pro'); ?></th>
                             <td>
                                 <input type="checkbox" name="webmcp_declarative_forms" value="1" <?php checked(1, get_option('webmcp_declarative_forms'), true); ?> />
-                                <span class="description">Automatically map all forms to AI tools (Search, Comments, Contact) to satisfy DevTools Audit.</span>
+                                <span class="description"><?php esc_html_e('Automatically map all forms to AI tools such as search, comments, and contact forms.', 'webmcp-toolkit-pro'); ?></span>
                             </td>
                         </tr>
                     </table>
@@ -79,53 +84,53 @@ class WebMCP_Toolkit_v3 {
 
                 <!-- ✨ AI PERSONA WIZARD ✨ -->
                 <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px; background: #f0f6fb; border-left: 4px solid #2271b1;">
-                    <h2>✨ AI Persona Wizard</h2>
-                    <p>Generate high-performance instructions for AI agents visiting <strong><?php echo esc_html($site_name); ?></strong>.</p>
+                    <h2><?php esc_html_e('AI Persona Wizard', 'webmcp-toolkit-pro'); ?></h2>
+                    <p><?php printf(esc_html__('Generate high-performance instructions for AI agents visiting %s.', 'webmcp-toolkit-pro'), '<strong>' . esc_html($site_name) . '</strong>'); ?></p>
                     
                     <div style="display: flex; gap: 20px; margin-bottom: 20px; align-items: flex-end;">
                         <div style="flex: 1;">
-                            <label><strong>Archetype:</strong></label>
+                            <label><strong><?php esc_html_e('Archetype:', 'webmcp-toolkit-pro'); ?></strong></label>
                             <select id="p-archetype" style="width: 100%;">
-                                <option value="blog">Information / Resource Blog</option>
-                                <option value="business">Business / Agency</option>
+                                <option value="blog"><?php esc_html_e('Information / Resource Blog', 'webmcp-toolkit-pro'); ?></option>
+                                <option value="business"><?php esc_html_e('Business / Agency', 'webmcp-toolkit-pro'); ?></option>
                                 <?php if ($is_recipe_active): ?>
-                                <option value="chef" selected>Cooking & Recipe Specialist (WPRM)</option>
+                                <option value="chef" selected><?php esc_html_e('Cooking & Recipe Specialist (WPRM)', 'webmcp-toolkit-pro'); ?></option>
                                 <?php endif; ?>
-                                <option value="tech">Ultra-Efficient (Technical)</option>
+                                <option value="tech"><?php esc_html_e('Ultra-Efficient (Technical)', 'webmcp-toolkit-pro'); ?></option>
                             </select>
                         </div>
                         <div style="flex: 1;">
-                            <label><strong>Tone:</strong></label>
+                            <label><strong><?php esc_html_e('Tone:', 'webmcp-toolkit-pro'); ?></strong></label>
                             <select id="p-tone" style="width: 100%;">
-                                <option value="friendly">Friendly & Helpful</option>
-                                <option value="professional">Professional & Direct</option>
-                                <option value="concise">Concise (Token Efficient)</option>
+                                <option value="friendly"><?php esc_html_e('Friendly & Helpful', 'webmcp-toolkit-pro'); ?></option>
+                                <option value="professional"><?php esc_html_e('Professional & Direct', 'webmcp-toolkit-pro'); ?></option>
+                                <option value="concise"><?php esc_html_e('Concise (Token Efficient)', 'webmcp-toolkit-pro'); ?></option>
                             </select>
                         </div>
-                        <button type="button" class="button button-primary" onclick="generatePersona()">Generate Proposition</button>
+                        <button type="button" class="button button-primary" onclick="generatePersona()"><?php esc_html_e('Generate Proposition', 'webmcp-toolkit-pro'); ?></button>
                     </div>
 
                     <!-- 📖 STRATEGIC DICTIONARY 📖 -->
                     <div style="background: #fff; padding: 15px; border-radius: 5px; border: 1px solid #ccd0d4; margin-bottom: 15px;">
-                        <h4 style="margin-top:0;">📖 Action Layer Dictionary</h4>
-                        <p class="description">Click an instruction to add it to your persona:</p>
+                        <h4 style="margin-top:0;"><?php esc_html_e('Action Layer Dictionary', 'webmcp-toolkit-pro'); ?></h4>
+                        <p class="description"><?php esc_html_e('Click an instruction to add it to your persona:', 'webmcp-toolkit-pro'); ?></p>
                         <div id="persona-dictionary" style="display:flex; flex-wrap:wrap; gap:8px;">
-                            <button type="button" class="button button-small" data-val="Always prioritize the 'site_search' tool over visual browsing.">+ Search Priority</button>
-                            <button type="button" class="button button-small" data-val="Use 'get_post_details' to bypass visual scraping noise.">+ JSON Accuracy</button>
+                            <button type="button" class="button button-small" data-val="<?php echo esc_attr__('Always prioritize the site_search tool over visual browsing.', 'webmcp-toolkit-pro'); ?>"><?php esc_html_e('+ Search Priority', 'webmcp-toolkit-pro'); ?></button>
+                            <button type="button" class="button button-small" data-val="<?php echo esc_attr__('Use get_post_details to bypass visual scraping noise.', 'webmcp-toolkit-pro'); ?>"><?php esc_html_e('+ JSON Accuracy', 'webmcp-toolkit-pro'); ?></button>
                             <?php if ($is_recipe_active): ?>
-                            <button type="button" class="button button-small" data-val="When a recipe is present, ALWAYS call 'get_recipe_data'.">+ Recipe Protocol</button>
-                            <button type="button" class="button button-small" data-val="Call 'scale_recipe_servings' for portion adjustments.">+ Scale Portions</button>
+                            <button type="button" class="button button-small" data-val="<?php echo esc_attr__('When a recipe is present, always call get_recipe_data.', 'webmcp-toolkit-pro'); ?>"><?php esc_html_e('+ Recipe Protocol', 'webmcp-toolkit-pro'); ?></button>
+                            <button type="button" class="button button-small" data-val="<?php echo esc_attr__('Call scale_recipe_servings for portion adjustments.', 'webmcp-toolkit-pro'); ?>"><?php esc_html_e('+ Scale Portions', 'webmcp-toolkit-pro'); ?></button>
                             <?php endif; ?>
-                            <button type="button" class="button button-small" data-val="Minimize visual token tax. Use structured tools only.">+ Token Saver</button>
-                            <button type="button" class="button button-small" data-val="Verify user intent before submitting declarative forms.">+ User Safety</button>
+                            <button type="button" class="button button-small" data-val="<?php echo esc_attr__('Minimize visual token tax. Use structured tools only.', 'webmcp-toolkit-pro'); ?>"><?php esc_html_e('+ Token Saver', 'webmcp-toolkit-pro'); ?></button>
+                            <button type="button" class="button button-small" data-val="<?php echo esc_attr__('Verify user intent before submitting declarative forms.', 'webmcp-toolkit-pro'); ?>"><?php esc_html_e('+ User Safety', 'webmcp-toolkit-pro'); ?></button>
                         </div>
                     </div>
 
-                    <label for="webmcp_persona"><strong>Final AI Persona:</strong></label>
-                    <textarea id="webmcp_persona_box" name="webmcp_persona" rows="8" style="width:100%; margin-top:10px; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13px;"><?php echo esc_textarea(get_option('webmcp_persona', 'You are an agent on a WordPress site.')); ?></textarea>
+                    <label for="webmcp_persona"><strong><?php esc_html_e('Final AI Persona:', 'webmcp-toolkit-pro'); ?></strong></label>
+                    <textarea id="webmcp_persona_box" name="webmcp_persona" rows="8" style="width:100%; margin-top:10px; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13px;"><?php echo esc_textarea(get_option('webmcp_persona', __('You are an agent on a WordPress site.', 'webmcp-toolkit-pro'))); ?></textarea>
                 </div>
 
-                <?php submit_button('Save Action Layer Settings'); ?>
+                <?php submit_button(__('Save Action Layer Settings', 'webmcp-toolkit-pro')); ?>
             </form>
         </div>
 
@@ -138,20 +143,20 @@ class WebMCP_Toolkit_v3 {
                 const box = document.getElementById('webmcp_persona_box');
 
                 let t = "";
-                if (tone === 'friendly') t = "Be helpful, warm, and clear.";
-                if (tone === 'professional') t = "Maintain a professional, authoritative tone.";
-                if (tone === 'concise') t = "Bypass conversational filler. Be extremely direct.";
+                if (tone === 'friendly') t = "<?php echo esc_js(__('Be helpful, warm, and clear.', 'webmcp-toolkit-pro')); ?>";
+                if (tone === 'professional') t = "<?php echo esc_js(__('Maintain a professional, authoritative tone.', 'webmcp-toolkit-pro')); ?>";
+                if (tone === 'concise') t = "<?php echo esc_js(__('Bypass conversational filler. Be extremely direct.', 'webmcp-toolkit-pro')); ?>";
 
-                let p = `You are the AI Assistant for ${name}. Slogan: ${slogan}.\n\nDirective:\n1. ${t}\n`;
+                let p = `<?php echo esc_js(__('You are the AI Assistant for', 'webmcp-toolkit-pro')); ?> ${name}. <?php echo esc_js(__('Slogan:', 'webmcp-toolkit-pro')); ?> ${slogan}.\n\n<?php echo esc_js(__('Directive:', 'webmcp-toolkit-pro')); ?>\n1. ${t}\n`;
 
                 if (arch === 'blog') {
-                    p += `2. Use 'site_search' for all content discovery.\n3. Call 'get_post_details' to retrieve high-accuracy structured data.\n4. Do not speculate beyond tool outputs.`;
+                    p += `2. <?php echo esc_js(__('Use site_search for all content discovery.', 'webmcp-toolkit-pro')); ?>\n3. <?php echo esc_js(__('Call get_post_details to retrieve high-accuracy structured data.', 'webmcp-toolkit-pro')); ?>\n4. <?php echo esc_js(__('Do not speculate beyond tool outputs.', 'webmcp-toolkit-pro')); ?>`;
                 } else if (arch === 'business') {
-                    p += `2. Locate services via 'site_search'.\n3. Use declarative forms for lead capture.\n4. Prioritize deterministic tool calls over vision.`;
+                    p += `2. <?php echo esc_js(__('Locate services via site_search.', 'webmcp-toolkit-pro')); ?>\n3. <?php echo esc_js(__('Use declarative forms for lead capture.', 'webmcp-toolkit-pro')); ?>\n4. <?php echo esc_js(__('Prioritize deterministic tool calls over vision.', 'webmcp-toolkit-pro')); ?>`;
                 } else if (arch === 'chef') {
-                    p += `2. ALWAYS call 'get_recipe_data' when on a recipe page.\n3. Use 'scale_recipe_servings' for portion math.\n4. Extract nutrition/ingredients strictly from JSON.`;
+                    p += `2. <?php echo esc_js(__('Always call get_recipe_data when on a recipe page.', 'webmcp-toolkit-pro')); ?>\n3. <?php echo esc_js(__('Use scale_recipe_servings for portion math.', 'webmcp-toolkit-pro')); ?>\n4. <?php echo esc_js(__('Extract nutrition and ingredients strictly from JSON.', 'webmcp-toolkit-pro')); ?>`;
                 } else if (arch === 'tech') {
-                    p += `2. Protocol: Tool Contract v3.0.\n3. Minimize token tax. Skip DOM parsing.\n4. Rely on JSON-RPC returns only.`;
+                    p += `2. <?php echo esc_js(__('Protocol: Tool Contract v3.0.', 'webmcp-toolkit-pro')); ?>\n3. <?php echo esc_js(__('Minimize token tax. Skip DOM parsing.', 'webmcp-toolkit-pro')); ?>\n4. <?php echo esc_js(__('Rely on JSON-RPC returns only.', 'webmcp-toolkit-pro')); ?>`;
                 }
 
                 box.value = p;
@@ -174,97 +179,93 @@ class WebMCP_Toolkit_v3 {
         $recipe_active = class_exists('WPRM_Recipe_Handler') || class_exists('WPRM_Recipe') || defined('WPRM_VERSION');
         ?>
         <div class="wrap">
-            <h1>WebMCP Toolkit PRO Help & Documentation</h1>
+            <h1><?php esc_html_e('WebMCP Toolkit PRO Help & Documentation', 'webmcp-toolkit-pro'); ?></h1>
             <p style="max-width: 900px; font-size: 15px;">
-                WebMCP Toolkit PRO helps make your WordPress site easier for AI agents and AI-enabled browsers to understand.
-                Instead of forcing an assistant to guess from the visual page, the plugin exposes clear instructions, structured tools,
-                and form labels that tell the agent what actions are available and how to use them.
+                <?php esc_html_e('WebMCP Toolkit PRO helps make your WordPress site easier for AI agents and AI-enabled browsers to understand. Instead of forcing an assistant to guess from the visual page, the plugin exposes clear instructions, structured tools, and form labels that tell the agent what actions are available and how to use them.', 'webmcp-toolkit-pro'); ?>
             </p>
 
             <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
-                <h2>Quick Start</h2>
+                <h2><?php esc_html_e('Quick Start', 'webmcp-toolkit-pro'); ?></h2>
                 <ol>
-                    <li>Open <strong>WebMCP AI</strong> in the WordPress dashboard.</li>
-                    <li>Enable <strong>Action Layer</strong> to register WebMCP tools on the front end.</li>
-                    <li>Enable <strong>Declarative Forms</strong> if you want search, comments, contact forms, and other forms labeled for AI agents.</li>
-                    <li>Use the <strong>AI Persona Wizard</strong> to generate instructions that match your site type and tone.</li>
-                    <li>Save your settings, then visit a public post or page and test it with an AI-enabled browser or WebMCP audit tool.</li>
+                    <li><?php esc_html_e('Open WebMCP AI in the WordPress dashboard.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Enable Action Layer to register WebMCP tools on the front end.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Enable Declarative Forms if you want search, comments, contact forms, and other forms labeled for AI agents.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Use the AI Persona Wizard to generate instructions that match your site type and tone.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Save your settings, then visit a public post or page and test it with an AI-enabled browser or WebMCP audit tool.', 'webmcp-toolkit-pro'); ?></li>
                 </ol>
             </div>
 
             <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
-                <h2>How This Helps Site Owners</h2>
+                <h2><?php esc_html_e('How This Helps Site Owners', 'webmcp-toolkit-pro'); ?></h2>
                 <table class="widefat striped">
                     <tbody>
                         <tr>
-                            <td><strong>Clear AI instructions</strong></td>
-                            <td>The <code>get_agent_instructions</code> tool tells agents what your site is, how to behave, and which tools to use first.</td>
+                            <td><strong><?php esc_html_e('Clear AI instructions', 'webmcp-toolkit-pro'); ?></strong></td>
+                            <td><?php esc_html_e('The get_agent_instructions tool tells agents what your site is, how to behave, and which tools to use first.', 'webmcp-toolkit-pro'); ?></td>
                         </tr>
                         <tr>
-                            <td><strong>Less guessing</strong></td>
-                            <td>Structured tools reduce scraping mistakes by giving agents a cleaner path to content and actions.</td>
+                            <td><strong><?php esc_html_e('Less guessing', 'webmcp-toolkit-pro'); ?></strong></td>
+                            <td><?php esc_html_e('Structured tools reduce scraping mistakes by giving agents a cleaner path to content and actions.', 'webmcp-toolkit-pro'); ?></td>
                         </tr>
                         <tr>
-                            <td><strong>Better form discovery</strong></td>
-                            <td>Declarative form labels help agents understand search, comment, contact, and generic forms.</td>
+                            <td><strong><?php esc_html_e('Better form discovery', 'webmcp-toolkit-pro'); ?></strong></td>
+                            <td><?php esc_html_e('Declarative form labels help agents understand search, comment, contact, and generic forms.', 'webmcp-toolkit-pro'); ?></td>
                         </tr>
                         <tr>
-                            <td><strong>Admin visibility</strong></td>
-                            <td>The AI Monitor shows recent tool activity so you can see how agents interact with the action layer.</td>
+                            <td><strong><?php esc_html_e('Admin visibility', 'webmcp-toolkit-pro'); ?></strong></td>
+                            <td><?php esc_html_e('The AI Monitor shows recent tool activity so you can see how agents interact with the action layer.', 'webmcp-toolkit-pro'); ?></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
-                <h2>For Bloggers and Publishers</h2>
+                <h2><?php esc_html_e('For Bloggers and Publishers', 'webmcp-toolkit-pro'); ?></h2>
                 <p>
-                    Bloggers can use WebMCP Toolkit PRO to guide AI readers toward search, article details, comments, and accurate site context.
-                    This is useful for content-heavy sites where assistants need to find posts, summarize topics, or help visitors navigate archives.
+                    <?php esc_html_e('Bloggers can use WebMCP Toolkit PRO to guide AI readers toward search, article details, comments, and accurate site context. This is useful for content-heavy sites where assistants need to find posts, summarize topics, or help visitors navigate archives.', 'webmcp-toolkit-pro'); ?>
                 </p>
                 <ul style="list-style: disc; padding-left: 22px;">
-                    <li>Use the <strong>Information / Resource Blog</strong> persona for educational, news, review, and niche blogs.</li>
-                    <li>Add instructions such as <strong>Search Priority</strong> and <strong>JSON Accuracy</strong> from the Action Layer Dictionary.</li>
-                    <li>Keep your persona specific: describe your audience, content niche, editorial tone, and what agents should avoid guessing.</li>
+                    <li><?php esc_html_e('Use the Information / Resource Blog persona for educational, news, review, and niche blogs.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Add instructions such as Search Priority and JSON Accuracy from the Action Layer Dictionary.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Keep your persona specific: describe your audience, content niche, editorial tone, and what agents should avoid guessing.', 'webmcp-toolkit-pro'); ?></li>
                 </ul>
             </div>
 
             <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
-                <h2>For Food Bloggers</h2>
+                <h2><?php esc_html_e('For Food Bloggers', 'webmcp-toolkit-pro'); ?></h2>
                 <p>
-                    Food bloggers using WP Recipe Maker can pair this toolkit with the WebMCP Recipe Maker Addon.
-                    The add-on exposes recipe name, ingredients, instructions, nutrition, and serving data as structured AI-readable output.
+                    <?php esc_html_e('Food bloggers using WP Recipe Maker can pair this toolkit with the WebMCP Recipe Maker Addon. The add-on exposes recipe name, ingredients, instructions, nutrition, and serving data as structured AI-readable output.', 'webmcp-toolkit-pro'); ?>
                 </p>
                 <ol>
-                    <li>Install and activate WP Recipe Maker.</li>
-                    <li>Install and activate WebMCP Recipe Maker Addon.</li>
-                    <li>Enable the WebMCP Toolkit PRO action layer.</li>
-                    <li>Open <strong>Recipe Integration</strong> under WebMCP AI to confirm both systems are connected.</li>
-                    <li>Use the <strong>Cooking & Recipe Specialist</strong> persona when building a food-site assistant profile.</li>
+                    <li><?php esc_html_e('Install and activate WP Recipe Maker.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Install and activate WebMCP Recipe Maker Addon.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Enable the WebMCP Toolkit PRO action layer.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Open Recipe Integration under WebMCP AI to confirm both systems are connected.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('Use the Cooking & Recipe Specialist persona when building a food-site assistant profile.', 'webmcp-toolkit-pro'); ?></li>
                 </ol>
                 <p>
-                    Current recipe status:
-                    <strong><?php echo $recipe_active ? 'WP Recipe Maker detected.' : 'WP Recipe Maker was not detected.'; ?></strong>
+                    <?php esc_html_e('Current recipe status:', 'webmcp-toolkit-pro'); ?>
+                    <strong><?php echo esc_html($recipe_active ? __('WP Recipe Maker detected.', 'webmcp-toolkit-pro') : __('WP Recipe Maker was not detected.', 'webmcp-toolkit-pro')); ?></strong>
                 </p>
             </div>
 
             <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
-                <h2>Available WebMCP Tools</h2>
+                <h2><?php esc_html_e('Available WebMCP Tools', 'webmcp-toolkit-pro'); ?></h2>
                 <ul style="list-style: disc; padding-left: 22px;">
-                    <li><code>get_agent_instructions</code>: returns the saved site persona and interaction rules.</li>
-                    <li><code>get_post_details</code>: logs and returns a structured response for a requested WordPress post ID.</li>
-                    <li><code>get_recipe_data</code>: added by the recipe add-on on posts that contain WP Recipe Maker recipes.</li>
-                    <li><code>scale_recipe_servings</code>: added by the recipe add-on to calculate a serving-size multiplier.</li>
+                    <li><?php esc_html_e('get_agent_instructions: returns the saved site persona and interaction rules.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('get_post_details: logs and returns a structured response for a requested WordPress post ID.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('get_recipe_data: added by the recipe add-on on posts that contain WP Recipe Maker recipes.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('scale_recipe_servings: added by the recipe add-on to calculate a serving-size multiplier.', 'webmcp-toolkit-pro'); ?></li>
                 </ul>
             </div>
 
             <div class="card" style="max-width: 100%; margin-top: 20px; padding: 20px;">
-                <h2>Troubleshooting</h2>
+                <h2><?php esc_html_e('Troubleshooting', 'webmcp-toolkit-pro'); ?></h2>
                 <ul style="list-style: disc; padding-left: 22px;">
-                    <li>If tools do not appear, confirm <strong>Enable Action Layer</strong> is checked and saved.</li>
-                    <li>If recipe tools do not appear, confirm the page contains a WP Recipe Maker recipe and that WP Recipe Maker is active.</li>
-                    <li>If forms are not labeled, enable <strong>Declarative Forms</strong> and reload the front-end page.</li>
-                    <li>If no activity appears in AI Monitor, test from a page where an AI agent actually calls one of the registered tools.</li>
+                    <li><?php esc_html_e('If tools do not appear, confirm Enable Action Layer is checked and saved.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('If recipe tools do not appear, confirm the page contains a WP Recipe Maker recipe and that WP Recipe Maker is active.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('If forms are not labeled, enable Declarative Forms and reload the front-end page.', 'webmcp-toolkit-pro'); ?></li>
+                    <li><?php esc_html_e('If no activity appears in AI Monitor, test from a page where an AI agent actually calls one of the registered tools.', 'webmcp-toolkit-pro'); ?></li>
                 </ul>
             </div>
         </div>
@@ -275,18 +276,18 @@ class WebMCP_Toolkit_v3 {
         $logs = get_option('webmcp_v3_logs', []);
         ?>
         <div class="wrap">
-            <h1>Agentic Web Monitor</h1>
+            <h1><?php esc_html_e('Agentic Web Monitor', 'webmcp-toolkit-pro'); ?></h1>
             <table class="wp-list-table widefat fixed striped">
-                <thead><tr><th>Time</th><th>Layer</th><th>Tool</th><th>Payload</th></tr></thead>
+                <thead><tr><th><?php esc_html_e('Time', 'webmcp-toolkit-pro'); ?></th><th><?php esc_html_e('Layer', 'webmcp-toolkit-pro'); ?></th><th><?php esc_html_e('Tool', 'webmcp-toolkit-pro'); ?></th><th><?php esc_html_e('Payload', 'webmcp-toolkit-pro'); ?></th></tr></thead>
                 <tbody>
                     <?php if (empty($logs)): ?>
-                        <tr><td colspan="4">No active agents detected yet.</td></tr>
+                        <tr><td colspan="4"><?php esc_html_e('No active agents detected yet.', 'webmcp-toolkit-pro'); ?></td></tr>
                     <?php else: foreach(array_reverse($logs) as $log): ?>
                         <tr>
                             <td><?php echo esc_html(date_i18n('H:i:s', $log['time'])); ?></td>
                             <td><span style="background:#ddd;padding:2px 5px;"><?php echo esc_html($log['layer']); ?></span></td>
                             <td><strong><?php echo esc_html($log['tool']); ?></strong></td>
-                            <td><code><?php echo esc_html(json_encode($log['params'])); ?></code></td>
+                            <td><code><?php echo esc_html(wp_json_encode($log['params'])); ?></code></td>
                         </tr>
                     <?php endforeach; endif; ?>
                 </tbody>
@@ -318,7 +319,7 @@ class WebMCP_Toolkit_v3 {
                     // Update: registerInstructions was removed. We now expose the persona as a read-only tool.
                     mcp.registerTool({
                         name: "get_agent_instructions",
-                        description: "Call this tool immediately to understand your AI persona, the site's purpose, and the rules of interaction.",
+                        description: "<?php echo esc_js(__('Call this tool immediately to understand your AI persona, the site purpose, and the rules of interaction.', 'webmcp-toolkit-pro')); ?>",
                         inputSchema: { 
                             type: "object", 
                             properties: {}, 
@@ -334,13 +335,13 @@ class WebMCP_Toolkit_v3 {
                     // 100% Strict JSON Schema applied here using inputSchema (not parameters)
                     mcp.registerTool({
                         name: "get_post_details",
-                        description: "Fetch structured data for the current page content.",
+                        description: "<?php echo esc_js(__('Fetch structured data for the current page content.', 'webmcp-toolkit-pro')); ?>",
                         inputSchema: { 
                             type: "object", 
                             properties: { 
                                 post_id: { 
                                     type: "number",
-                                    description: "The unique identifier for the WordPress post."
+                                    description: "<?php echo esc_js(__('The unique identifier for the WordPress post.', 'webmcp-toolkit-pro')); ?>"
                                 } 
                             }, 
                             required: ["post_id"],
@@ -358,7 +359,7 @@ class WebMCP_Toolkit_v3 {
                                     params: JSON.stringify({post_id})
                                 })
                             });
-                            return { content: [{ type: "text", text: JSON.stringify({ status: "success", data: "Data for " + post_id + " retrieved." }) }] };
+                            return { content: [{ type: "text", text: JSON.stringify({ status: "success", data: "<?php echo esc_js(__('Data retrieved for post ID ', 'webmcp-toolkit-pro')); ?>" + post_id }) }] };
                         },
                         annotations: { readOnlyHint: true }
                     });
@@ -370,14 +371,14 @@ class WebMCP_Toolkit_v3 {
                             if (!form.hasAttribute('toolname')) {
                                 if (form.querySelector('input[name="s"]')) {
                                     form.setAttribute('toolname', 'site_search');
-                                    form.setAttribute('tooldescription', 'Search the site database.');
+                                    form.setAttribute('tooldescription', '<?php echo esc_js(__('Search the site database.', 'webmcp-toolkit-pro')); ?>');
                                 } else if (form.id === 'commentform') {
                                     form.setAttribute('toolname', 'post_comment');
-                                    form.setAttribute('tooldescription', 'Submit a comment on the article.');
+                                    form.setAttribute('tooldescription', '<?php echo esc_js(__('Submit a comment on the article.', 'webmcp-toolkit-pro')); ?>');
                                 } else {
                                     // Ensure ALL forms have coverage to pass the Chrome DevTools WebMCP audit
                                     form.setAttribute('toolname', 'generic_form_' + index);
-                                    form.setAttribute('tooldescription', 'Interact with this generic form.');
+                                    form.setAttribute('tooldescription', '<?php echo esc_js(__('Interact with this generic form.', 'webmcp-toolkit-pro')); ?>');
                                 }
                             }
                         });
@@ -404,12 +405,12 @@ class WebMCP_Toolkit_v3 {
         ?>
         <div id="webmcp-bridge-ui" style="position:fixed; bottom:20px; left:20px; z-index:10000; font-family:sans-serif;">
             <div id="webmcp-btn" style="cursor:pointer; background:#2271b1; color:white; padding:10px 15px; border-radius:50px; box-shadow:0 4px 10px rgba(0,0,0,0.2); font-weight:bold; display:flex; align-items:center; gap:8px;">
-                <span style="font-size:18px;">🤖</span> WebMCP Bridge (Admin)
+                <span style="font-size:18px;">🤖</span> <?php esc_html_e('WebMCP Bridge (Admin)', 'webmcp-toolkit-pro'); ?>
             </div>
             <div id="webmcp-panel" style="display:none; margin-bottom:10px; background:white; padding:15px; border:1px solid #ddd; border-radius:8px; width:250px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
-                <h4 style="margin:0 0 10px 0;">Link AI Agent</h4>
-                <input type="text" id="webmcp-token" placeholder="Paste Bridge Token..." style="width:100%; margin-bottom:10px;">
-                <button id="webmcp-connect" style="width:100%; background:#00a32a; color:white; border:none; padding:8px; border-radius:4px; cursor:pointer;">Link Session</button>
+                <h4 style="margin:0 0 10px 0;"><?php esc_html_e('Link AI Agent', 'webmcp-toolkit-pro'); ?></h4>
+                <input type="text" id="webmcp-token" placeholder="<?php echo esc_attr__('Paste Bridge Token...', 'webmcp-toolkit-pro'); ?>" style="width:100%; margin-bottom:10px;">
+                <button id="webmcp-connect" style="width:100%; background:#00a32a; color:white; border:none; padding:8px; border-radius:4px; cursor:pointer;"><?php esc_html_e('Link Session', 'webmcp-toolkit-pro'); ?></button>
             </div>
         </div>
         <script>
@@ -418,9 +419,9 @@ class WebMCP_Toolkit_v3 {
                 p.style.display = p.style.display === 'none' ? 'block' : 'none';
             };
             document.getElementById('webmcp-connect').onclick = function() {
-                this.innerText = 'Linking...';
+                this.innerText = '<?php echo esc_js(__('Linking...', 'webmcp-toolkit-pro')); ?>';
                 setTimeout(() => {
-                    document.getElementById('webmcp-panel').innerHTML = '<p style="color:#00a32a; font-weight:bold; text-align:center;">✓ Session Secured</p>';
+                    document.getElementById('webmcp-panel').innerHTML = '<p style="color:#00a32a; font-weight:bold; text-align:center;"><?php echo esc_js(__('Session Secured', 'webmcp-toolkit-pro')); ?></p>';
                 }, 1000);
             };
         </script>

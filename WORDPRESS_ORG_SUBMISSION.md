@@ -29,18 +29,18 @@ zip -r webmcp-recipe-maker-addon.zip webmcp-recipe-maker-addon
 WordPress.org will provide an SVN repository for each approved plugin. Copy the matching prepared folder content:
 
 - `wordpress-org/webmcp-toolkit-pro/trunk`
-- `wordpress-org/webmcp-toolkit-pro/tags/3.2.3`
+- `wordpress-org/webmcp-toolkit-pro/tags/3.2.4`
 - `wordpress-org/webmcp-toolkit-pro/assets`
 
 and:
 
 - `wordpress-org/webmcp-recipe-maker-addon/trunk`
-- `wordpress-org/webmcp-recipe-maker-addon/tags/1.3.3`
+- `wordpress-org/webmcp-recipe-maker-addon/tags/1.3.4`
 - `wordpress-org/webmcp-recipe-maker-addon/assets`
 
 Do not commit GitHub `dist/` ZIP files to WordPress.org SVN.
 
 ## Current Stable Tags
 
-- WebMCP Toolkit PRO: `3.2.3`
-- WebMCP Recipe Maker Addon: `1.3.3`
+- WebMCP Toolkit PRO: `3.2.4`
+- WebMCP Recipe Maker Addon: `1.3.4`

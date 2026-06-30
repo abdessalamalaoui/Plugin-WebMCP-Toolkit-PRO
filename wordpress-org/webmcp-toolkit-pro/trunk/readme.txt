@@ -4,7 +4,7 @@ Tags: ai, webmcp, automation, chatbot, accessibility
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 3.2.3
+Stable tag: 3.2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,7 @@ This plugin is GPL licensed and fully functional. It does not include paid unloc
 * AI Persona Wizard for site-specific assistant instructions.
 * Declarative form labels for search, comments, contact forms, and other forms.
 * Dashboard Help & Docs page for setup and troubleshooting.
+* Translation-ready admin screens with a bundled POT file.
 * AI Monitor for recent action-layer activity.
 * Structured tools including `get_agent_instructions` and `get_post_details`.
 
@@ -73,6 +74,11 @@ Install WP Recipe Maker and the separate WebMCP Recipe Maker Addon.
 
 == Changelog ==
 
+= 3.2.4 =
+* Added language loading and a languages directory.
+* Added a starter translation template at `languages/webmcp-toolkit-pro.pot`.
+* Made the main dashboard screens, help page, monitor, and admin bridge text translation-ready.
+
 = 3.2.3 =
 * Added WordPress.org-compatible plugin headers.
 * Added WordPress.org readme.
@@ -88,6 +94,9 @@ Install WP Recipe Maker and the separate WebMCP Recipe Maker Addon.
 * Initial public release.
 
 == Upgrade Notice ==
+
+= 3.2.4 =
+Recommended language and WordPress.org compatibility update.
 
 = 3.2.3 =
 Recommended compatibility and hardening update for WordPress.org packaging.

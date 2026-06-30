@@ -4,7 +4,7 @@ Tags: recipes, food blog, wp recipe maker, ai, webmcp
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ This plugin is GPL licensed and fully functional. It does not include paid unloc
 * Registers `scale_recipe_servings` to calculate portion-size adjustments.
 * Adds a Recipe Integration status page under WebMCP AI.
 * Includes setup guidance for food bloggers.
+* Translation-ready admin screens with a bundled POT file.
 
 = Requirements =
 
@@ -67,6 +68,11 @@ No. This WordPress.org package is fully functional and GPL licensed.
 
 == Changelog ==
 
+= 1.3.4 =
+* Added language loading and a languages directory.
+* Added a starter translation template at `languages/webmcp-recipe-maker-addon.pot`.
+* Made the dashboard status and guidance text translation-ready.
+
 = 1.3.3 =
 * Added WordPress.org-compatible plugin headers.
 * Added WordPress.org readme.
@@ -79,6 +85,9 @@ No. This WordPress.org package is fully functional and GPL licensed.
 * Initial public release.
 
 == Upgrade Notice ==
+
+= 1.3.4 =
+Recommended language and WordPress.org compatibility update.
 
 = 1.3.3 =
 Recommended compatibility update for WordPress.org packaging.

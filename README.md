@@ -43,6 +43,8 @@ This repository includes WordPress.org-ready package files:
 
 - `webmcp-toolkit-pro/readme.txt`
 - `webmcp-recipe-maker-addon/readme.txt`
+- `webmcp-toolkit-pro/languages/webmcp-toolkit-pro.pot`
+- `webmcp-recipe-maker-addon/languages/webmcp-recipe-maker-addon.pot`
 - `wordpress-org/webmcp-toolkit-pro/`
 - `wordpress-org/webmcp-recipe-maker-addon/`
 
@@ -55,6 +57,8 @@ The `wordpress-org/` folders are prepared in the expected SVN shape:
 - `assets/` for future banners, icons, and screenshots.
 
 Do not upload the `dist/` ZIP files into WordPress.org SVN. They are for GitHub/manual installation only.
+
+Both plugins include a `languages/` directory with a POT file so translators can create locale-specific `.po` and `.mo` files.
 
 ## Help & Documentation
 
