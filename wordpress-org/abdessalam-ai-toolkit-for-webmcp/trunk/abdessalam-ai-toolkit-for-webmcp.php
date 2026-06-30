@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: Abdessalam AI Toolkit for WebMCP
- * Plugin URI: https://github.com/abdessalamalaoui
  * Description: Adds an AI-readable WebMCP action layer, persona instructions, form mapping, and monitoring to WordPress.
  * Version: 3.2.6
  * Requires at least: 6.0

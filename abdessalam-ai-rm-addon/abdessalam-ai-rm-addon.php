@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: Abdessalam AI RM Addon
- * Plugin URI: https://github.com/abdessalamalaoui
  * Description: Extends Abdessalam AI Toolkit for WebMCP for WP Recipe Maker. Exposes recipe data as structured tools for AI agents.
  * Version: 1.3.7
  * Requires at least: 6.5
