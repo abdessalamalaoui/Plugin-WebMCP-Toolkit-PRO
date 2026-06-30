@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR abdessalam.ai
+# This file is distributed under the same license as the Abdessalam AI RM Addon package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Abdessalam AI RM Addon 1.3.6\n"
+"Report-Msgid-Bugs-To: https://github.com/abdessalamalaoui/Plugin-WebMCP-"
+"Toolkit-PRO/issues\n"
+"POT-Creation-Date: 2026-06-30 12:17-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:41
+msgid "Recipe Settings"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:42
+msgid "Recipe Integration"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:51
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:52
+msgid "Abdessalam AI RM Addon"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:65
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:69
+msgid "Abdessalam AI RM Addon:"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:65
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:84
+msgid ""
+"Abdessalam AI WebMCP PRO is not active. Activate it to expose WebMCP recipe "
+"tools."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:69
+msgid ""
+"WP Recipe Maker is not active. Recipe tools will remain disabled until WP "
+"Recipe Maker is active."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:79
+msgid "Abdessalam AI"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:79
+msgid "RM Addon"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:84
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:86
+msgid "Error:"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:86
+msgid ""
+"WP Recipe Maker not detected. Even if active, try refreshing or ensuring "
+"WPRM is loaded."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:88
+msgid "Note:"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:88
+msgid ""
+"The Action Layer is disabled. Go to Abdessalam AI WebMCP settings to enable "
+"it."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:90
+msgid "System Connected:"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:90
+msgid "Recipe content is now accessible via the Action Layer."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:96
+msgid "Integration Status"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:99
+msgid "Abdessalam AI WebMCP PRO:"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:102
+msgid "Active"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:104
+msgid "Not Active"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:109
+msgid "WP Recipe Maker:"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:112
+msgid "Connected"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:114
+msgid "Not Detected"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:122
+#, php-format
+msgid "Status version: %s"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:128
+msgid "How to Use the RM Addon"
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:130
+msgid "Activate Abdessalam AI WebMCP PRO and enable the Action Layer."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:131
+msgid "Activate WP Recipe Maker and add recipes to your posts."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:132
+msgid "Activate Abdessalam AI RM Addon."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:133
+msgid "Open a post that contains a WP Recipe Maker recipe."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:134
+msgid ""
+"AI-enabled browsers can then call get_recipe_data and scale_recipe_servings."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:137
+msgid ""
+"This helps food bloggers make ingredients, steps, nutrition, and serving "
+"data easier for AI assistants to read accurately. It is especially useful "
+"when visitors ask for shopping lists, recipe summaries, or portion "
+"adjustments."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:174
+msgid ""
+"Provides full structured recipe data including ingredients, instructions, "
+"nutrition, and servings from WP Recipe Maker."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:196
+msgid "Calculates the factor to adjust ingredients for a new portion size."
+msgstr ""
+
+#: abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php:202
+msgid "The desired number of servings to scale to."
+msgstr ""

@@ -1,0 +1,558 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR abdessalam.ai
+# This file is distributed under the same license as the Abdessalam AI WebMCP PRO package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Abdessalam AI WebMCP PRO 3.2.5\n"
+"Report-Msgid-Bugs-To: https://github.com/abdessalamalaoui/Plugin-WebMCP-"
+"Toolkit-PRO/issues\n"
+"POT-Creation-Date: 2026-06-30 12:10-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:31
+msgid "Abdessalam AI WebMCP"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:31
+msgid "Abdessalam AI"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:32
+msgid "AI Analytics"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:32
+msgid "AI Monitor"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:33
+msgid "Help & Documentation"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:33
+msgid "Help & Docs"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:55
+msgid "Abdessalam AI WebMCP PRO"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:55
+msgid "Actionable Layer"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:61
+msgid "Core Configuration"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:64
+msgid "Enable Action Layer"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:67
+msgid "Activates document.modelContext for AI browsers."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:71
+msgid "Declarative Forms"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:74
+msgid ""
+"Automatically map all forms to AI tools such as search, comments, and "
+"contact forms."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:82
+msgid "AI Persona Wizard"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:85
+#, php-format
+msgid "Generate high-performance instructions for AI agents visiting %s."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:90
+msgid "Archetype:"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:92
+msgid "Information / Resource Blog"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:93
+msgid "Business / Agency"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:95
+msgid "Cooking & Recipe Specialist (WPRM)"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:97
+msgid "Ultra-Efficient (Technical)"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:101
+msgid "Tone:"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:103
+msgid "Friendly & Helpful"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:104
+msgid "Professional & Direct"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:105
+msgid "Concise (Token Efficient)"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:108
+msgid "Generate Proposition"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:113
+msgid "Action Layer Dictionary"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:114
+msgid "Click an instruction to add it to your persona:"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:116
+msgid "Always prioritize the site_search tool over visual browsing."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:116
+msgid "+ Search Priority"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:117
+msgid "Use get_post_details to bypass visual scraping noise."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:117
+msgid "+ JSON Accuracy"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:119
+msgid "When a recipe is present, always call get_recipe_data."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:119
+msgid "+ Recipe Protocol"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:120
+msgid "Call scale_recipe_servings for portion adjustments."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:120
+msgid "+ Scale Portions"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:122
+msgid "Minimize visual token tax. Use structured tools only."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:122
+msgid "+ Token Saver"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:123
+msgid "Verify user intent before submitting declarative forms."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:123
+msgid "+ User Safety"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:127
+msgid "Final AI Persona:"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:128
+msgid "You are an agent on a WordPress site."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:131
+msgid "Save Action Layer Settings"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:144
+msgid "Be helpful, warm, and clear."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:145
+msgid "Maintain a professional, authoritative tone."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:146
+msgid "Bypass conversational filler. Be extremely direct."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:148
+msgid "You are the AI Assistant for"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:148
+msgid "Slogan:"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:148
+msgid "Directive:"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:151
+msgid "Use site_search for all content discovery."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:151
+msgid "Call get_post_details to retrieve high-accuracy structured data."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:151
+msgid "Do not speculate beyond tool outputs."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:153
+msgid "Locate services via site_search."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:153
+msgid "Use declarative forms for lead capture."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:153
+msgid "Prioritize deterministic tool calls over vision."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:155
+msgid "Always call get_recipe_data when on a recipe page."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:155
+msgid "Use scale_recipe_servings for portion math."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:155
+msgid "Extract nutrition and ingredients strictly from JSON."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:157
+msgid "Protocol: Tool Contract v3.0."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:157
+msgid "Minimize token tax. Skip DOM parsing."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:157
+msgid "Rely on JSON-RPC returns only."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:180
+msgid "Abdessalam AI WebMCP PRO Help & Documentation"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:182
+msgid ""
+"Abdessalam AI WebMCP PRO helps make your WordPress site easier for AI agents "
+"and AI-enabled browsers to understand. Instead of forcing an assistant to "
+"guess from the visual page, the plugin exposes clear instructions, "
+"structured tools, and form labels that tell the agent what actions are "
+"available and how to use them."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:186
+msgid "Quick Start"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:188
+msgid "Open Abdessalam AI in the WordPress dashboard."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:189
+msgid "Enable Action Layer to register WebMCP tools on the front end."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:190
+msgid ""
+"Enable Declarative Forms if you want search, comments, contact forms, and "
+"other forms labeled for AI agents."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:191
+msgid ""
+"Use the AI Persona Wizard to generate instructions that match your site type "
+"and tone."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:192
+msgid ""
+"Save your settings, then visit a public post or page and test it with an AI-"
+"enabled browser or WebMCP audit tool."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:197
+msgid "How This Helps Site Owners"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:201
+msgid "Clear AI instructions"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:202
+msgid ""
+"The get_agent_instructions tool tells agents what your site is, how to "
+"behave, and which tools to use first."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:205
+msgid "Less guessing"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:206
+msgid ""
+"Structured tools reduce scraping mistakes by giving agents a cleaner path to "
+"content and actions."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:209
+msgid "Better form discovery"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:210
+msgid ""
+"Declarative form labels help agents understand search, comment, contact, and "
+"generic forms."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:213
+msgid "Admin visibility"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:214
+msgid ""
+"The AI Monitor shows recent tool activity so you can see how agents interact "
+"with the action layer."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:221
+msgid "For Bloggers and Publishers"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:223
+msgid ""
+"Bloggers can use Abdessalam AI WebMCP PRO to guide AI readers toward search, "
+"article details, comments, and accurate site context. This is useful for "
+"content-heavy sites where assistants need to find posts, summarize topics, "
+"or help visitors navigate archives."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:226
+msgid ""
+"Use the Information / Resource Blog persona for educational, news, review, "
+"and niche blogs."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:227
+msgid ""
+"Add instructions such as Search Priority and JSON Accuracy from the Action "
+"Layer Dictionary."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:228
+msgid ""
+"Keep your persona specific: describe your audience, content niche, editorial "
+"tone, and what agents should avoid guessing."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:233
+msgid "For Food Bloggers"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:235
+msgid ""
+"Food bloggers using WP Recipe Maker can pair this toolkit with Abdessalam AI "
+"RM Addon. The add-on exposes recipe name, ingredients, instructions, "
+"nutrition, and serving data as structured AI-readable output."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:238
+msgid "Install and activate WP Recipe Maker."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:239
+msgid "Install and activate Abdessalam AI RM Addon."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:240
+msgid "Enable the Abdessalam AI WebMCP PRO action layer."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:241
+msgid ""
+"Open Recipe Integration under Abdessalam AI to confirm both systems are "
+"connected."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:242
+msgid ""
+"Use the Cooking & Recipe Specialist persona when building a food-site "
+"assistant profile."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:245
+msgid "Current recipe status:"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:246
+msgid "WP Recipe Maker detected."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:246
+msgid "WP Recipe Maker was not detected."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:251
+msgid "Available WebMCP Tools"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:253
+msgid ""
+"get_agent_instructions: returns the saved site persona and interaction rules."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:254
+msgid ""
+"get_post_details: logs and returns a structured response for a requested "
+"WordPress post ID."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:255
+msgid ""
+"get_recipe_data: added by the recipe add-on on posts that contain WP Recipe "
+"Maker recipes."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:256
+msgid ""
+"scale_recipe_servings: added by the recipe add-on to calculate a serving-"
+"size multiplier."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:261
+msgid "Troubleshooting"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:263
+msgid ""
+"If tools do not appear, confirm Enable Action Layer is checked and saved."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:264
+msgid ""
+"If recipe tools do not appear, confirm the page contains a WP Recipe Maker "
+"recipe and that WP Recipe Maker is active."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:265
+msgid ""
+"If forms are not labeled, enable Declarative Forms and reload the front-end "
+"page."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:266
+msgid ""
+"If no activity appears in AI Monitor, test from a page where an AI agent "
+"actually calls one of the registered tools."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:277
+msgid "Agentic Web Monitor"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:279
+msgid "Time"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:279
+msgid "Layer"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:279
+msgid "Tool"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:279
+msgid "Payload"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:282
+msgid "No active agents detected yet."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:320
+msgid ""
+"Call this tool immediately to understand your AI persona, the site purpose, "
+"and the rules of interaction."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:336
+msgid "Fetch structured data for the current page content."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:342
+msgid "The unique identifier for the WordPress post."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:360
+msgid "Data retrieved for post ID "
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:372
+msgid "Search the site database."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:375
+msgid "Submit a comment on the article."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:379
+msgid "Interact with this generic form."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:406
+msgid "WebMCP Bridge (Admin)"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:409
+msgid "Link AI Agent"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:410
+msgid "Paste Bridge Token..."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:411
+msgid "Link Session"
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:420
+msgid "Linking..."
+msgstr ""
+
+#: abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php:422
+msgid "Session Secured"
+msgstr ""

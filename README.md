@@ -1,12 +1,12 @@
-# Plugin WebMCP Toolkit PRO
+# Plugin Abdessalam AI WebMCP PRO
 
-Public source repository for the **WebMCP Toolkit PRO** WordPress plugin and the **WebMCP Recipe Maker Addon**.
+Public source repository for the **Abdessalam AI WebMCP PRO** WordPress plugin and the **Abdessalam AI RM Addon**.
 
 ## Packages
 
-### WebMCP Toolkit PRO
+### Abdessalam AI WebMCP PRO
 
-`webmcp-toolkit-pro/`
+`abdessalam-ai-webmcp-pro/`
 
 Adds a WebMCP-oriented action layer to WordPress sites, including:
 
@@ -18,11 +18,11 @@ Adds a WebMCP-oriented action layer to WordPress sites, including:
 - Admin-only bridge status widget.
 - Basic agent action logging in the WordPress dashboard.
 
-### WebMCP Recipe Maker Addon
+### Abdessalam AI RM Addon
 
-`webmcp-recipe-maker-addon/`
+`abdessalam-ai-rm-addon/`
 
-Extends WebMCP Toolkit PRO for sites using WP Recipe Maker:
+Extends Abdessalam AI WebMCP PRO for sites using WP Recipe Maker:
 
 - Detects WP Recipe Maker recipes on singular posts.
 - Registers `get_recipe_data` for structured ingredients, instructions, nutrition, and servings.
@@ -33,20 +33,20 @@ Extends WebMCP Toolkit PRO for sites using WP Recipe Maker:
 
 1. Download a ZIP from `dist/` or package a plugin folder manually.
 2. In WordPress, go to **Plugins > Add New > Upload Plugin**.
-3. Upload `webmcp-toolkit-pro.zip` and activate it.
-4. Optional: upload `webmcp-recipe-maker-addon.zip` and activate it on sites using WP Recipe Maker.
-5. Enable the action layer from **WebMCP AI > WebMCP v3** in the WordPress dashboard.
+3. Upload `abdessalam-ai-webmcp-pro.zip` and activate it.
+4. Optional: upload `abdessalam-ai-rm-addon.zip` and activate it on sites using WP Recipe Maker.
+5. Enable the action layer from **Abdessalam AI > Abdessalam AI WebMCP** in the WordPress dashboard.
 
 ## WordPress.org Compatibility
 
 This repository includes WordPress.org-ready package files:
 
-- `webmcp-toolkit-pro/readme.txt`
-- `webmcp-recipe-maker-addon/readme.txt`
-- `webmcp-toolkit-pro/languages/webmcp-toolkit-pro.pot`
-- `webmcp-recipe-maker-addon/languages/webmcp-recipe-maker-addon.pot`
-- `wordpress-org/webmcp-toolkit-pro/`
-- `wordpress-org/webmcp-recipe-maker-addon/`
+- `abdessalam-ai-webmcp-pro/readme.txt`
+- `abdessalam-ai-rm-addon/readme.txt`
+- `abdessalam-ai-webmcp-pro/languages/abdessalam-ai-webmcp-pro.pot`
+- `abdessalam-ai-rm-addon/languages/abdessalam-ai-rm-addon.pot`
+- `wordpress-org/abdessalam-ai-webmcp-pro/`
+- `wordpress-org/abdessalam-ai-rm-addon/`
 
 The main toolkit and the recipe add-on should be submitted as separate WordPress.org plugins because each plugin needs its own slug, readme, review, and SVN repository.
 
@@ -62,25 +62,25 @@ Both plugins include a `languages/` directory with a POT file so translators can
 
 ## Help & Documentation
 
-After activation, open **WebMCP AI > Help & Docs** in the WordPress dashboard.
+After activation, open **Abdessalam AI > Help & Docs** in the WordPress dashboard.
 
 That page explains:
 
-- What WebMCP Toolkit PRO does for WordPress sites.
+- What Abdessalam AI WebMCP PRO does for WordPress sites.
 - How to enable the action layer and declarative form mapping.
 - How to use the AI Persona Wizard.
 - How bloggers can guide AI agents toward accurate site search and post discovery.
-- How food bloggers can use the Recipe Maker Addon with WP Recipe Maker.
+- How food bloggers can use the RM Addon with WP Recipe Maker.
 - Which WebMCP tools are registered on the front end.
 - Common troubleshooting steps.
 
 ## How It Helps Users
 
-WebMCP Toolkit PRO gives AI-enabled browsers a clearer way to understand a WordPress site. Instead of relying only on visual scraping, agents can read site instructions, discover labeled forms, and use structured tools. For visitors, this can mean more accurate help, cleaner navigation, and fewer mistaken summaries.
+Abdessalam AI WebMCP PRO gives AI-enabled browsers a clearer way to understand a WordPress site. Instead of relying only on visual scraping, agents can read site instructions, discover labeled forms, and use structured tools. For visitors, this can mean more accurate help, cleaner navigation, and fewer mistaken summaries.
 
 For bloggers and publishers, the plugin helps AI assistants understand the site's niche, tone, and preferred content-discovery flow. This is useful for archives, how-to posts, reviews, tutorials, news, and resource libraries.
 
-For food bloggers, the WebMCP Recipe Maker Addon exposes recipe data from WP Recipe Maker in a structured format. AI agents can read ingredients, instructions, nutrition, and serving counts more reliably, then help visitors with recipe summaries, shopping lists, and portion scaling.
+For food bloggers, the Abdessalam AI RM Addon exposes recipe data from WP Recipe Maker in a structured format. AI agents can read ingredients, instructions, nutrition, and serving counts more reliably, then help visitors with recipe summaries, shopping lists, and portion scaling.
 
 ## Available Tools
 
@@ -100,15 +100,15 @@ For food bloggers, the WebMCP Recipe Maker Addon exposes recipe data from WP Rec
 Run PHP syntax checks:
 
 ```bash
-php -l webmcp-toolkit-pro/webmcp-toolkit-pro.php
-php -l webmcp-recipe-maker-addon/webmcp-recipe-maker-addon.php
+php -l abdessalam-ai-webmcp-pro/abdessalam-ai-webmcp-pro.php
+php -l abdessalam-ai-rm-addon/abdessalam-ai-rm-addon.php
 ```
 
 Build release ZIPs:
 
 ```bash
-zip -r dist/webmcp-toolkit-pro.zip webmcp-toolkit-pro
-zip -r dist/webmcp-recipe-maker-addon.zip webmcp-recipe-maker-addon
+zip -r dist/abdessalam-ai-webmcp-pro.zip abdessalam-ai-webmcp-pro
+zip -r dist/abdessalam-ai-rm-addon.zip abdessalam-ai-rm-addon
 ```
 
 ## License
