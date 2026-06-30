@@ -37,6 +37,25 @@ Extends WebMCP Toolkit PRO for sites using WP Recipe Maker:
 4. Optional: upload `webmcp-recipe-maker-addon.zip` and activate it on sites using WP Recipe Maker.
 5. Enable the action layer from **WebMCP AI > WebMCP v3** in the WordPress dashboard.
 
+## WordPress.org Compatibility
+
+This repository includes WordPress.org-ready package files:
+
+- `webmcp-toolkit-pro/readme.txt`
+- `webmcp-recipe-maker-addon/readme.txt`
+- `wordpress-org/webmcp-toolkit-pro/`
+- `wordpress-org/webmcp-recipe-maker-addon/`
+
+The main toolkit and the recipe add-on should be submitted as separate WordPress.org plugins because each plugin needs its own slug, readme, review, and SVN repository.
+
+The `wordpress-org/` folders are prepared in the expected SVN shape:
+
+- `trunk/` for the current development release.
+- `tags/{version}/` for the stable release matching the readme stable tag.
+- `assets/` for future banners, icons, and screenshots.
+
+Do not upload the `dist/` ZIP files into WordPress.org SVN. They are for GitHub/manual installation only.
+
 ## Help & Documentation
 
 After activation, open **WebMCP AI > Help & Docs** in the WordPress dashboard.
